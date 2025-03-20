@@ -1,0 +1,70 @@
+/* General Styles */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #eef2f3, #d9e3f0);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+/* Main Container */
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 400px;
+}
+
+/* Title and Subtitle */
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Input and Button */
+.input-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.input-box {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 250px;
+    font-size: 14px;
+}
+
+.check-btn {
+    background: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.check-btn:hover {
+    background: #0056b3;
+}
+
+/* Result Text */
+.result-text {
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+}

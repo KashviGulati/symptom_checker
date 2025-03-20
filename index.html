@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Checker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">Symptom Checker</h2>
+        <p class="subtitle">Enter symptoms (comma-separated):</p>
+        <div class="input-container">
+            <input type="text" id="symptomsInput" class="input-box" placeholder="e.g., headache, fever, cough">
+            <button onclick="predictDisease()" class="check-btn">Check Disease</button>
+        </div>
+        <p id="result" class="result-text"></p>
+    </div>
+
+    <script>
+        async function predictDisease() {
+            const symptoms = document.getElementById("symptomsInput").value.split(",").map(s => s.trim());
+
+            if (symptoms.length === 0 || symptoms[0] === "") {
+                alert("Please enter at least one symptom.");
+                return;
+            }
+
+            const response = await fetch("http://127.0.0.1:5000/predict", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ symptoms: symptoms })
+            });
+
+            const data = await response.json();
+            document.getElementById("result").innerText = data.predicted_disease
+                ? `Predicted Disease: ${data.predicted_disease}`
+                : `Error: ${data.error}`;
+        }
+    </script>
+</body>
+</html>
